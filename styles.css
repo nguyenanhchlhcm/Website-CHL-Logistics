@@ -1061,6 +1061,75 @@ h1, h2, h3, h4, h5, h6 {
     height: 20px;
 }
 
+/* Fleet Section */
+.fleet {
+    padding: 80px 0;
+    background-color: var(--navy-dark);
+}
+
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.fleet-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.fleet-card:hover {
+    transform: translateY(-10px);
+}
+
+.fleet-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.fleet-info {
+    padding: 25px;
+}
+
+.fleet-info h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.fleet-info p {
+    color: var(--text-gray);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.fleet-features {
+    list-style: none;
+    padding: 0;
+}
+
+.fleet-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.fleet-features li i {
+    color: var(--primary);
+    width: 18px;
+    height: 18px;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
     .hero h1 { font-size: 3rem; }
