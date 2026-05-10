@@ -211,6 +211,36 @@ async function fetchRecentQuotes() {
     }
 }
 
+// Fetch Latest Report from Quote App API
+async function fetchLatestReport() {
+    const container = document.getElementById('latest-report-container');
+    if (!container) return;
+
+    try {
+        const response = await fetch('https://bao-gia-cuoc-v2.vercel.app/api/public/latest-report');
+        const data = await response.json();
+
+        if (data.success && data.data) {
+            const report = data.data;
+            const itemHtml = `
+                <div class="report-badge">MỚI NHẤT</div>
+                <h4>${report.tieu_de}</h4>
+                <p>${report.mo_ta}</p>
+                <a href="${report.link}" class="btn btn-primary btn-small" target="_blank">
+                    Đọc báo cáo <i data-lucide="external-link"></i>
+                </a>
+            `;
+            container.innerHTML = itemHtml;
+            lucide.createIcons();
+        } else {
+            container.innerHTML = `<div style="text-align: center; color: var(--text-gray); font-size: 0.9rem; padding: 20px 0;">Chưa có báo cáo nào gần đây.</div>`;
+        }
+    } catch (error) {
+        console.error('Error fetching latest report:', error);
+        container.innerHTML = `<div style="text-align: center; color: var(--text-gray); font-size: 0.9rem; padding: 20px 0;">Không thể tải báo cáo. Vui lòng thử lại sau.</div>`;
+    }
+}
+
 function getTimeAgo(date) {
     const seconds = Math.floor((new Date() - date) / 1000);
     let interval = seconds / 31536000;
@@ -230,5 +260,6 @@ function getTimeAgo(date) {
 document.addEventListener('DOMContentLoaded', () => {
     fetchFuelPrices();
     fetchRecentQuotes();
+    fetchLatestReport();
 });
 
