@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo Chiến lược Xăng dầu - 07/05/2026</title>
+    <style>
+        :root {
+            --primary: #1a237e;
+            --secondary: #0d47a1;
+            --accent: #ff6f00;
+            --success: #2e7d32;
+            --danger: #c62828;
+            --bg: #f5f7fa;
+            --card-bg: #ffffff;
+            --text: #37474f;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        /* Banner Style */
+        .banner {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .banner-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .banner-item h3 {
+            margin: 0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        .banner-item p {
+            margin: 10px 0 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .trend-down { color: #81c784; }
+        .trend-up { color: #e57373; }
+
+        /* Dashboard Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--bg);
+            padding-bottom: 10px;
+        }
+
+        /* Table Style */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #fafafa;
+            font-size: 0.85rem;
+            color: #78909c;
+        }
+
+        .price-up { color: var(--danger); font-weight: bold; }
+        .price-down { color: var(--success); font-weight: bold; }
+
+        /* Scenario Box */
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .scenario {
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            border: 1px solid #eee;
+        }
+
+        .scenario.base { border-left: 5px solid var(--secondary); }
+        .scenario.opt { border-left: 5px solid var(--success); }
+        .scenario.pess { border-left: 5px solid var(--danger); }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.8rem;
+            color: #90a4ae;
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .badge-priority { background: #fff3e0; color: #ef6c00; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- 4.1. Executive Summary -->
+    <div class="banner" id="executive-summary">
+        <div class="banner-item">
+            <h3>Giá Diesel hiện tại</h3>
+            <p>27.494 <span style="font-size: 1rem">VNĐ</span></p>
+        </div>
+        <div class="banner-item">
+            <h3>Xu hướng kỳ tới</h3>
+            <p class="trend-down">▼ GIẢM MẠNH</p>
+        </div>
+        <div class="banner-item">
+            <h3>Hành động ưu tiên</h3>
+            <p><span class="badge badge-priority">TRÌ HOÃN NHẬP HÀNG</span></p>
+        </div>
+    </div>
+
+    <div class="grid">
+        <!-- 4.2. Dashboard Trực quan -->
+        <div class="card">
+            <h2>Diễn biến thị trường (07/05)</h2>
+            <table>
+                <tr>
+                    <th>Mặt hàng</th>
+                    <th>Giá thế giới (USD)</th>
+                    <th>Biến động</th>
+                </tr>
+                <tr>
+                    <td>Brent Crude</td>
+                    <td>96.70</td>
+                    <td class="price-down">-4.50%</td>
+                </tr>
+                <tr>
+                    <td>WTI Crude</td>
+                    <td>91.24</td>
+                    <td class="price-down">-4.04%</td>
+                </tr>
+                <tr>
+                    <td>Tỷ giá VCB</td>
+                    <td>26.368</td>
+                    <td class="price-up">+0.25%</td>
+                </tr>
+            </table>
+            <p style="font-size: 0.85rem; color: #666; margin-top: 15px;">
+                * Ghi chú: Giá thế giới giảm mạnh do tín hiệu tích cực từ đàm phán Mỹ-Iran về eo biển Hormuz. Tuy nhiên, tỷ giá USD/VND tăng nhẹ gây áp lực lên giá nhập khẩu.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Giá bán lẻ Việt Nam (15h00 07/05)</h2>
+            <table>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá mới (VNĐ)</th>
+                    <th>Thay đổi</th>
+                </tr>
+                <tr>
+                    <td>RON 95-III</td>
+                    <td>24.354</td>
+                    <td class="price-up">+603</td>
+                </tr>
+                <tr>
+                    <td>E5 RON 92</td>
+                    <td>23.790</td>
+                    <td class="price-up">+1.164</td>
+                </tr>
+                <tr>
+                    <td>Diesel 0.05S</td>
+                    <td>27.494</td>
+                    <td class="price-down">-678</td>
+                </tr>
+            </table>
+            <p style="font-size: 0.85rem; color: #666; margin-top: 15px;">
+                Quỹ BOG: Tiếp tục ngừng trích/chi. Giá xăng tăng do bình quân chu kỳ trước cao, dầu giảm do xu hướng MOPS hạ nhiệt.
+            </p>
+        </div>
+    </div>
+
+    <!-- 4.3. Phân tích Chi tiết & Dự báo -->
+    <div class="card">
+        <h2>Ma trận Kịch bản Kỳ tới (Dự kiến 14/05/2026)</h2>
+        <div class="scenario-grid">
+            <div class="scenario base">
+                <strong>Cơ sở (Base) - 60%</strong><br>
+                Giá dầu thế giới ổn định quanh mức 95-97 USD. <br>
+                <strong>Dự báo:</strong> Giảm 300 - 500 VNĐ.
+            </div>
+            <div class="scenario opt">
+                <strong>Lạc quan (Optimistic) - 30%</strong><br>
+                Thỏa thuận Mỹ-Iran ký kết chính thức. <br>
+                <strong>Dự báo:</strong> Giảm >800 VNĐ.
+            </div>
+            <div class="scenario pess">
+                <strong>Rủi ro (Pessimistic) - 10%</strong><br>
+                Đàm phán đổ vỡ, eo biển bị đe dọa trở lại. <br>
+                <strong>Dự báo:</strong> Đi ngang hoặc tăng nhẹ.
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+        <h2>Tác động Tài chính (BA Impact Analysis)</h2>
+        <p>Dựa trên định mức tiêu thụ <strong>10,000 lít Diesel/tháng</strong>:</p>
+        <ul>
+            <li><strong>Tiết kiệm trong kỳ này:</strong> ~6.780.000 VNĐ (so với kỳ trước).</li>
+            <li><strong>Dự báo tiết kiệm kỳ tới:</strong> Thêm 3.000.000 - 5.000.000 VNĐ nếu xu hướng giảm tiếp tục.</li>
+        </ul>
+        <p><strong>Khuyến nghị chiến lược:</strong> Không nhập hàng dự trữ lớn trong 48h tới. Đợi xác nhận tin tức từ Trung Đông để tối ưu điểm rơi chi phí.</p>
+    </div>
+
+    <div class="footer">
+        Hệ thống Phân tích Antigravity BA Strategic Edition | Dữ liệu cập nhật: 07/05/2026 23:55 (UTC+7)
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+==================================================
+QUY TRÌNH QUẢN LÝ VÀ CẬP NHẬT WEBSITE CHL LOGISTICS
+==================================================
+
+1. THÔNG TIN CHUNG
+- Tên miền website: https://chl.vn
+- Nơi lưu trữ (Hosting): Thư mục "d:\XUAN ANH\Antigravity\WebsitesCHLLogistics-demo"
+- Hệ thống đẩy lên mạng: Netlify (https://app.netlify.com)
+- Tài khoản quản trị Netlify: Đăng nhập bằng Google qua Email nguyenanhchl.hcm@gmail.com
+
+--------------------------------------------------
+
+2. QUY TRÌNH QUẢN LÝ VÀ CHỈNH SỬA WEBSITE
+
+BƯỚC 1: CHỈNH SỬA NỘI DUNG TRÊN MÁY TÍNH
+1. Truy cập vào thư mục chứa website: D:\XUAN ANH\Antigravity\WebsitesCHLLogistics-demo\
+2. Click chuột phải vào file "index.html" -> Chọn "Open with" -> Chọn "Notepad" (Hoặc bất kỳ phần mềm soạn thảo nào bạn dùng).
+3. Cập nhật các thông tin bạn muốn. Mẹo: Bấm Ctrl + F để tìm kiếm các nội dung cần sửa. 
+   - Ví dụ: Tìm "0949 968 958" để đổi số điện thoại.
+   - Ví dụ: Tìm "admin@chl.vn" hoặc "nguyenanhchl.hcm@gmail.com" để sửa Email.
+4. Sau khi sửa xong, bấm Ctrl + S (hoặc File -> Save) để lưu lại thay đổi.
+5. Kiểm tra lại bằng cách click đúp (mở trực tiếp) file index.html lên trình duyệt để xem nội dung đã vừa ý chưa (bước này chỉ xem bản nháp trên máy tính).
+
+BƯỚC 2: ĐƯA NỘI DUNG MỚI LÊN MẠNG (INTERNET)
+1. Mở trình duyệt web và truy cập vào Netlify: https://app.netlify.com
+2. Bấm "Log in" (Đăng nhập) -> Chọn biểu tượng "Google" -> Đăng nhập bằng đúng Email: nguyenanhchl.hcm@gmail.com
+3. Tại màn hình chính (Team overview), bấm chọn vào Dự án website của bạn (sẽ có tên là "chl-logistics" hoặc tên project đã tạo).
+4. Ở danh sách menu bên trái, tìm và bấm vào chữ "Deploys".
+5. Kéo trang xuống phía dưới cùng, bạn sẽ thấy một khu vực có nét đứt với dòng chữ: "Drag and drop your site output folder here" (Kéo và thả thư mục đầu ra trang web của bạn vào đây) hoặc "Need to update your site? Drag and drop your site output folder here".
+6. Mở lại thư mục "D:\XUAN ANH\Antigravity\" trên máy tính của bạn.
+7. Dùng chuột click giữ nguyên thư mục "WebsitesCHLLogistics-demo" và KÉO - THẢ nó vào khu vực khung đứt đoạn trên trình duyệt vừa mở.
+8. Chờ hệ thống chạy Upload trong khoảng vài giây. Khi hiện thông báo báo "Published" màu xanh là đã thành công. 
+
+Trang web https://chl.vn của bạn đã ngay lập tức được tự động cập nhật với nội dung mới!
+
+--------------------------------------------------
+
+3. LƯU Ý KHI THÊM/THAY ĐỔI HÌNH ẢNH
+- Khi muốn thêm ảnh mới hoặc thay ảnh cũ, hãy chép (copy) file ảnh đó vào chung thư mục "WebsitesCHLLogistics-demo".
+- Sau đó sửa tên file trong mã HTML để chỉ đúng vào tên tấm ảnh đó (ví dụ từ src="logo.png" thành src="logo-moi.png").
+- Khi kéo thả thư mục lên hệ thống Netlify, toàn bộ hình ảnh chứa trong thư mục cũng sẽ được tự động tải lên thao tác cùng lúc nên bạn không cần làm gì thêm!
