@@ -166,17 +166,32 @@ async function fetchRecentQuotes() {
         if (data.success && data.data && data.data.length > 0) {
             container.innerHTML = ''; // Xóa loader
             data.data.forEach(quote => {
-                const formattedPrice = new Intl.NumberFormat('vi-VN').format(quote.Gia_Tham_Khao) + 'đ';
-                const timeAgo = getTimeAgo(new Date(quote.Ngay));
+                // Sử dụng biến chữ thường (do API đã trả về chữ thường)
+                const formattedPrice = new Intl.NumberFormat('vi-VN').format(quote.gia_tham_khao || 0) + 'đ';
+                
+                // Xử lý ngày tháng định dạng vi-VN (DD/MM/YYYY)
+                let dateObj = new Date();
+                if (quote.ngay) {
+                    const parts = quote.ngay.split(/[\s,]+/);
+                    const datePart = parts.find(p => p.includes('/'));
+                    const timePart = parts.find(p => p.includes(':'));
+                    if (datePart) {
+                        const [d, m, y] = datePart.split('/');
+                        if (y) {
+                            dateObj = new Date(`${y}-${m}-${d}T${timePart || '00:00:00'}`);
+                        }
+                    }
+                }
+                const timeAgo = getTimeAgo(dateObj);
                 
                 const itemHtml = `
                     <div class="quote-item">
                         <div class="quote-route">
                             <i data-lucide="map-pin" style="color: var(--primary); width: 14px; height: 14px;"></i>
-                            ${quote.Diem_Di} <i data-lucide="arrow-right" style="width: 12px; height: 12px; opacity: 0.5;"></i> ${quote.Diem_Den}
+                            ${quote.diem_di || 'Chưa rõ'} <i data-lucide="arrow-right" style="width: 12px; height: 12px; opacity: 0.5;"></i> ${quote.diem_den || 'Chưa rõ'}
                         </div>
                         <div class="quote-details">
-                            <span>${quote.Loai_Hang === 'NHAP' ? 'Hàng Nhập' : 'Hàng Xuất'}</span>
+                            <span>${quote.loai_hang === 'NHAP' ? 'Hàng Nhập' : 'Hàng Xuất'}</span>
                             <span class="quote-price">${formattedPrice}</span>
                         </div>
                         <div style="font-size: 0.75rem; color: var(--text-gray); margin-top: 4px; text-align: right;">
