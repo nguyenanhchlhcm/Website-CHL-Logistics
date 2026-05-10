@@ -154,7 +154,66 @@ async function fetchFuelPrices() {
     }
 }
 
+// Fetch Recent Quotes from Quote App API
+async function fetchRecentQuotes() {
+    const container = document.getElementById('recent-quotes-container');
+    if (!container) return;
+
+    try {
+        const response = await fetch('https://bao-gia-cuoc-v2.vercel.app/api/public/recent-quotes');
+        const data = await response.json();
+
+        if (data.success && data.data && data.data.length > 0) {
+            container.innerHTML = ''; // Xóa loader
+            data.data.forEach(quote => {
+                const formattedPrice = new Intl.NumberFormat('vi-VN').format(quote.Gia_Tham_Khao) + 'đ';
+                const timeAgo = getTimeAgo(new Date(quote.Ngay));
+                
+                const itemHtml = `
+                    <div class="quote-item">
+                        <div class="quote-route">
+                            <i data-lucide="map-pin" style="color: var(--primary); width: 14px; height: 14px;"></i>
+                            ${quote.Diem_Di} <i data-lucide="arrow-right" style="width: 12px; height: 12px; opacity: 0.5;"></i> ${quote.Diem_Den}
+                        </div>
+                        <div class="quote-details">
+                            <span>${quote.Loai_Hang === 'NHAP' ? 'Hàng Nhập' : 'Hàng Xuất'}</span>
+                            <span class="quote-price">${formattedPrice}</span>
+                        </div>
+                        <div style="font-size: 0.75rem; color: var(--text-gray); margin-top: 4px; text-align: right;">
+                            <i data-lucide="clock" style="width: 10px; height: 10px; display: inline-block; vertical-align: middle;"></i> ${timeAgo}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += itemHtml;
+            });
+            lucide.createIcons();
+        } else {
+            container.innerHTML = `<div style="text-align: center; color: var(--text-gray); font-size: 0.9rem; padding: 20px 0;">Chưa có dữ liệu báo giá gần đây.</div>`;
+        }
+    } catch (error) {
+        console.error('Error fetching recent quotes:', error);
+        container.innerHTML = `<div style="text-align: center; color: var(--text-gray); font-size: 0.9rem; padding: 20px 0;">Không thể tải dữ liệu báo giá.</div>`;
+    }
+}
+
+function getTimeAgo(date) {
+    const seconds = Math.floor((new Date() - date) / 1000);
+    let interval = seconds / 31536000;
+    if (interval > 1) return Math.floor(interval) + " năm trước";
+    interval = seconds / 2592000;
+    if (interval > 1) return Math.floor(interval) + " tháng trước";
+    interval = seconds / 86400;
+    if (interval > 1) return Math.floor(interval) + " ngày trước";
+    interval = seconds / 3600;
+    if (interval > 1) return Math.floor(interval) + " giờ trước";
+    interval = seconds / 60;
+    if (interval > 1) return Math.floor(interval) + " phút trước";
+    return Math.floor(seconds) + " giây trước";
+}
+
 // Initialize on Load
 document.addEventListener('DOMContentLoaded', () => {
     fetchFuelPrices();
+    fetchRecentQuotes();
 });
+
