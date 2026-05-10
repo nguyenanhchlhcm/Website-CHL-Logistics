@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BÁO CÁO CHIẾN LƯỢC THỊ TRƯỜNG XĂNG DẦU - 10/05/2026</title>
+    <style>
+        :root {
+            --primary: #1a237e;
+            --secondary: #0d47a1;
+            --accent: #ff6f00;
+            --success: #2e7d32;
+            --danger: #c62828;
+            --warning: #fbc02d;
+            --bg: #f5f7fa;
+            --card-bg: #ffffff;
+            --text: #37474f;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 4.0 Main Heading */
+        .main-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .main-header h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+        }
+
+        .main-header .date-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 50px;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        /* 4.1. Executive Summary (Banner) */
+        .banner {
+            background: linear-gradient(135deg, #b71c1c, #d32f2f); /* Red Alert Style */
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 15px 30px rgba(183, 28, 28, 0.2);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 120%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .banner-item {
+            text-align: center;
+            flex: 1;
+            z-index: 1;
+        }
+
+        .banner-item h3 {
+            margin: 0;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+
+        .banner-item p {
+            margin: 10px 0 0;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .trend-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            display: inline-block;
+        }
+
+        /* Dashboard Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .card h2::before {
+            content: '';
+            width: 5px;
+            height: 25px;
+            background: var(--accent);
+            border-radius: 10px;
+        }
+
+        /* Table Style */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-size: 0.8rem;
+            color: #607d8b;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .price-up { color: var(--danger); font-weight: 700; }
+        .price-down { color: var(--success); font-weight: 700; }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            font-size: 0.85rem;
+            color: #90a4ae;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .badge-status {
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- 4.0. Tiêu đề Báo cáo -->
+    <header class="main-header">
+        <h1>BÁO CÁO CHIẾN LƯỢC THỊ TRƯỜNG XĂNG DẦU</h1>
+        <div class="date-badge">NGÀY 10 THÁNG 05 NĂM 2026</div>
+    </header>
+
+    <!-- 4.1. Executive Summary -->
+    <section class="banner">
+        <div class="banner-item">
+            <h3>Giá Diesel hiện tại</h3>
+            <p>27.494 <span style="font-size: 1.2rem">VNĐ/L</span></p>
+        </div>
+        <div class="banner-item">
+            <h3>Xu hướng kỳ tới</h3>
+            <p><span class="trend-badge">▲ TĂNG TRỞ LẠI</span></p>
+        </div>
+        <div class="banner-item">
+            <h3>Hành động ưu tiên</h3>
+            <p>CHỦ ĐỘNG NHẬP HÀNG</p>
+        </div>
+    </section>
+
+    <div class="grid">
+        <!-- 4.2. Dashboard Trực quan -->
+        <div class="card">
+            <h2>Thị trường Quốc tế</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mặt hàng</th>
+                        <th>Giá trị (USD)</th>
+                        <th>Biến động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Brent Crude</td>
+                        <td>101.29</td>
+                        <td class="price-up">+4.75%</td>
+                    </tr>
+                    <tr>
+                        <td>WTI Crude</td>
+                        <td>94.80</td>
+                        <td class="price-up">+3.90%</td>
+                    </tr>
+                    <tr>
+                        <td>Tỷ giá VCB</td>
+                        <td>26.367</td>
+                        <td class="price-down">Ổn định</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size: 0.85rem; color: #757575; margin-top: 15px; font-style: italic;">
+                * Cảnh báo: Tình hình eo biển Hormuz leo thang sau vụ tấn công tàu dầu của Mỹ ngày 08/05.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Thị trường Trong nước</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Giá bán lẻ (VNĐ)</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>RON 95-III</td>
+                        <td>24.354</td>
+                        <td><span class="badge-status">Bình ổn</span></td>
+                    </tr>
+                    <tr>
+                        <td>E5 RON 92</td>
+                        <td>23.790</td>
+                        <td><span class="badge-status">Bình ổn</span></td>
+                    </tr>
+                    <tr>
+                        <td>Diesel 0.05S</td>
+                        <td>27.494</td>
+                        <td><span class="badge-status">Bình ổn</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size: 0.85rem; color: #757575; margin-top: 15px; font-style: italic;">
+                * Ghi chú: Số dư Quỹ BOG dồi dào là công cụ quan trọng để kiềm chế đà tăng kỳ tới.
+            </p>
+        </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 0;">
+        <h2>Nhận định chuyên gia (BA Analysis)</h2>
+        <p>Kết thúc tuần giao dịch, thị trường năng lượng ghi nhận sự đảo chiều mạnh mẽ. Mặc dù bình quân chu kỳ Brent 7 ngày hiện tại ở mức **103.00 USD** (vẫn thấp hơn kỳ trước), nhưng xu hướng daily đang tăng tốc do đàm phán Mỹ-Iran bế tắc.</p>
+        <p><strong>Dự báo kỳ điều chỉnh 14/05/2026:</strong> Áp lực tăng giá từ 200 - 400 VNĐ nếu căng thẳng không hạ nhiệt trong 48 giờ tới.</p>
+        <p><strong>Khuyến nghị:</strong> Doanh nghiệp Logistics nên thực hiện nhập hàng ngay trong ngày 11/05 để đảm bảo tồn kho ở mức giá Diesel thấp đã được điều chỉnh từ ngày 07/05.</p>
+    </div>
+
+    <footer class="footer">
+        Hệ thống Phân tích Antigravity BA Strategic Edition | Bản quyền thuộc về Senior BA Team<br>
+        Dữ liệu được kiểm chứng đa nguồn: Trading Economics, Vietcombank, Petrolimex.
+    </footer>
+</div>
+
+</body>
+</html>
